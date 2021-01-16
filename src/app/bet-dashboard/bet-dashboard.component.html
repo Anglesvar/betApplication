@@ -28,9 +28,9 @@
     <h2>Select Playing 9</h2>
     <div class="search-input-div">
       <form>
-        <!-- <mat-form-field> -->
-          <input matInput  placeholder="Search player" [(ngModel)]="playerSearchInput" (ngModelChange)="searchSubmissions()" name='Search'>
-        <!-- </mat-form-field> -->
+        <mat-form-field>
+          <input matInput placeholder="Search player" [(ngModel)]="playerSearchInput" (ngModelChange)="searchSubmissions()" name='Search'>
+        </mat-form-field>
       </form>
     </div>
     <table mat-table class="dashboard-table" matSortActive="price" matSortDirection="desc" [dataSource]="allPlayersDataSource" matSort>

@@ -28,6 +28,9 @@ export class BetDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    this.allPlayersDataSource.filterPredicate = (data: Element, filter: string) => {
+      return data['Name'].toLowerCase().includes(filter);
+     };
   }
   getData(){
     this.betService.getBetData().subscribe((playerData)=>{
@@ -41,8 +44,10 @@ export class BetDashboardComponent implements OnInit {
     })
   }
 
-  searchSubmissions(){
-
+  searchSubmissions() {
+    this.playerSearchInput = this.playerSearchInput.trim(); // Remove whitespace
+    this.playerSearchInput = this.playerSearchInput.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.allPlayersDataSource.filter = this.playerSearchInput;
   }
 
   addRequiredFields(){

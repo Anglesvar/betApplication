@@ -16,7 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon'
 import { FormsModule } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
