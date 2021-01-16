@@ -15,7 +15,7 @@ interface dataSource {
   styleUrls: ['./bet-dashboard.component.css']
 })
 export class BetDashboardComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'playerName', 'avatar', 'bet', 'wins', 'lost', 'price'];
+  displayedColumns: string[] = ['select', 'playerName', 'avatar', 'bet', 'wins', 'lost', 'Price'];
   displayedColumnsSelected: string[] = ['playerName', 'avatar', 'bet'];
   allPlayersDataSource: any = new MatTableDataSource<any>();
   selectedPlayersDataSource: any = new MatTableDataSource<any>();
