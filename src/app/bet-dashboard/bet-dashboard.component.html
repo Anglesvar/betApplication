@@ -30,7 +30,6 @@
       <form>
         <!-- <mat-form-field> -->
           <input matInput  placeholder="Search player" [(ngModel)]="playerSearchInput" (ngModelChange)="searchSubmissions()" name='Search'>
-          <mat-icon class="search-icon">home</mat-icon>
         <!-- </mat-form-field> -->
       </form>
     </div>
@@ -79,3 +78,4 @@
     <mat-paginator [pageSize]="10" class="paginator" [hidePageSize]="true"></mat-paginator>
   </mat-card>
 </mat-card>
+<div class="loading" *ngIf="allPlayersDataSource.data.length==0">Loading...</div>
