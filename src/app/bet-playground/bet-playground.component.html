@@ -27,14 +27,21 @@
     </div>
   </div>
 </div>
+<div class="align-win">
+  <div class="align-win-banner">
+    <div class="line-left"></div>
+    <div class="bet-winner-banner" *ngIf="checkRandom">{{winningBet}}</div>
+    <div class="line-right"></div>
+  </div>
 
+</div>
 <div class="row">
   <div *ngFor="let userData of data;let i = index;">
     <div *ngIf="i>=5">
       <div class="player-card col-md-2" [ngClass]="userData['gameWon']?'green-color-marker':null">
         <div class="">
-          <div class="avatar-display ">
-            <img class="" [src]="userData['Profile Image']">
+          <div class="avatar-display">
+            <img class="profile-image" [src]="userData['Profile Image']">
             <div>
               <h3>{{userData['Name']}}</h3>
               <p>Level 5</p>

@@ -9,6 +9,7 @@ export class BetPlaygroundComponent implements OnInit {
 
   data : any;
   checkRandom: boolean = false;
+  winningBet: number;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,7 +18,6 @@ export class BetPlaygroundComponent implements OnInit {
 
   getData(): void{
     this.data = JSON.parse(window.localStorage.getItem('selectedPlayerData'));
-    console.log(this.data);
     this.playGame();
   }
   playGame(): void{
@@ -30,6 +30,7 @@ export class BetPlaygroundComponent implements OnInit {
           player['wins']++;
           this.checkRandom = true;
           player['Price']*=2;
+          this.winningBet = player['Bet'];
         }
         else{
           player['gameWon'] = false;

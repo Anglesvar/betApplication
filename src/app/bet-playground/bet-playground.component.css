@@ -36,3 +36,40 @@
 .win-banner{
   background: green;
 }
+
+.bet-winner-banner{
+  width: 150px;
+  height: 150px;
+  border-radius: 90px;
+  font-size: 100px;
+  color: goldenrod;
+  background: black;
+  box-shadow: 0 0 0 3px goldenrod;
+  border: 1px solid;
+  display: table-cell;
+  vertical-align:middle;
+  text-align: center;
+}
+.avatar-display img{
+  border-radius: 10px !important;
+}
+.align-win-banner{
+  padding-left: 45%;
+}
+.line-left{
+  height: 2px;
+  width: 200px;
+  background: black;
+  position: relative;
+  left: -250px;
+  top: 75px;
+}
+.line-right{
+  height: 2px;
+  width: 200px;
+  background: black;
+  position: relative;
+  right: -230px;
+  top: -75px;
+  justify-content: end;
+}

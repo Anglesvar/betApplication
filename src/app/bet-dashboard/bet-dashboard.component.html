@@ -21,7 +21,7 @@
     </table>
     <h2 class="error-message" *ngIf="!selectedPlayersDataSource.data.length">No Players Selected!</h2>
     <button mat-raised-button class="start-button" (click)="startGame()" *ngIf="selectedPlayersDataSource.data.length == 9">START</button>
-    <h2 class="error-message" *ngIf="selectedPlayersDataSource.data.length!=9">Select All 9 players</h2>
+    <h2 class="error-message" *ngIf="selectedPlayersDataSource.data.length<9">Select {{9 - selectedPlayersDataSource.data.length}} players</h2>
   </mat-card>
 
   <mat-card id="all-players-list">
