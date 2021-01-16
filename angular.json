@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bet"
+    }
+  },
+  "defaultProject": "bet",
+  "cli": {
+    "analytics": "18a533af-c49f-49a8-8a20-709fd290a02c"
+  }
 }
