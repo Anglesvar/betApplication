@@ -1,1 +1,59 @@
-<p>bet-playground works!</p>
+<div class="row">
+  <div *ngFor="let userData of data;let i = index;">
+    <div *ngIf="i<5">
+      <div class="player-card col-md-2" [ngClass]="userData['gameWon']?'green-color-marker':null">
+        <div class="">
+          <div class="avatar-display ">
+            <img class="" [src]="userData['Profile Image']">
+            <div>
+              <h3>{{userData['Name']}}</h3>
+              <p>Level 5</p>
+            </div>
+          </div>
+          <div class="price">
+            <!-- <fa name="fas fa-camera"></fa> -->
+            <h4>Price - {{userData['Price']}}</h4>
+          </div>
+          <div class="wins">
+            <h4>Wins - {{userData['wins']}}</h4>
+          </div>
+          <div class="bet">
+            <h4>Bet - {{userData['Bet']}}</h4>
+          </div>
+        </div>
+        <div class="winner-loser-banner win-banner" *ngIf="userData['gameWon']">Winner</div>
+        <div class="winner-loser-banner" *ngIf="!userData['gameWon']">Lose</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div *ngFor="let userData of data;let i = index;">
+    <div *ngIf="i>=5">
+      <div class="player-card col-md-2" [ngClass]="userData['gameWon']?'green-color-marker':null">
+        <div class="">
+          <div class="avatar-display ">
+            <img class="" [src]="userData['Profile Image']">
+            <div>
+              <h3>{{userData['Name']}}</h3>
+              <p>Level 5</p>
+            </div>
+          </div>
+          <div class="price">
+            <!-- <fa name="fas fa-camera"></fa> -->
+            <h4>Price - {{userData['Price']}}</h4>
+          </div>
+          <div class="wins">
+            <h4>Wins - {{userData['wins']}}</h4>
+          </div>
+          <div class="bet">
+            <h4>Bet - {{userData['Bet']}}</h4>
+          </div>
+        </div>
+        <div class="winner-loser-banner win-banner" *ngIf="userData['gameWon']">Winner</div>
+        <div class="winner-loser-banner" *ngIf="!userData['gameWon']">Lose</div>
+      </div>
+    </div>
+  </div>
+</div>

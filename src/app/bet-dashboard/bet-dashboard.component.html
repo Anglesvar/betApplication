@@ -1,1 +1,81 @@
-<p>bet-dashboard works!</p>
+<mat-card class="dashboard">
+  <mat-card id="selected-player-table">
+    <table mat-table class="dashboard-table" [dataSource]="selectedPlayersDataSource">
+      <ng-container matColumnDef="playerName">
+        <th mat-header-cell *matHeaderCellDef> Player Name </th>
+        <td mat-cell *matCellDef="let element" > {{element.Name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef> AVATAR </th>
+        <td mat-cell *matCellDef="let element" > <img class="profile-image" [src]="element['Profile Image']"> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bet">
+        <th mat-header-cell *matHeaderCellDef> BET </th>
+        <td mat-cell *matCellDef="let element" > {{element.Bet}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsSelected"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsSelected;" ></tr>
+    </table>
+    <h2 class="error-message" *ngIf="!selectedPlayersDataSource.data.length">No Players Selected!</h2>
+    <button mat-raised-button class="start-button" (click)="startGame()" *ngIf="selectedPlayersDataSource.data.length == 9">START</button>
+    <h2 class="error-message" *ngIf="selectedPlayersDataSource.data.length!=9">Select All 9 players</h2>
+  </mat-card>
+
+  <mat-card id="all-players-list">
+    <h2>Select Playing 9</h2>
+    <div class="search-input-div">
+      <form>
+        <!-- <mat-form-field> -->
+          <input matInput  placeholder="Search player" [(ngModel)]="playerSearchInput" (ngModelChange)="searchSubmissions()" name='Search'>
+          <mat-icon class="search-icon">home</mat-icon>
+        <!-- </mat-form-field> -->
+      </form>
+    </div>
+    <table mat-table class="dashboard-table" matSortActive="price" matSortDirection="desc" [dataSource]="allPlayersDataSource" matSort>
+
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> SELECT </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox [checked]= "element.checked" (change)="selectPlayer(element)"></mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="playerName">
+        <th mat-header-cell *matHeaderCellDef> Player Name </th>
+        <td mat-cell *matCellDef="let element" > {{element.Name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef> AVATAR </th>
+        <td mat-cell *matCellDef="let element" > <img class="profile-image" [src]="element['Profile Image']"> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bet">
+        <th mat-header-cell *matHeaderCellDef> BET </th>
+        <td mat-cell *matCellDef="let element" > {{element.Bet}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="wins">
+        <th mat-header-cell *matHeaderCellDef> <i class="fa fa-address-book"></i> WINS </th>
+        <td mat-cell *matCellDef="let element" > {{element.wins}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lost">
+        <th mat-header-cell *matHeaderCellDef> LOST </th>
+        <td mat-cell *matCellDef="let element" > {{element.lost}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> PRICE </th>
+        <td mat-cell *matCellDef="let element" > {{element.Price}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+    <mat-paginator [pageSize]="10" class="paginator" [hidePageSize]="true"></mat-paginator>
+  </mat-card>
+</mat-card>
