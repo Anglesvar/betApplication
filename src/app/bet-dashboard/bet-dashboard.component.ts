@@ -15,7 +15,7 @@ interface dataSource {
   styleUrls: ['./bet-dashboard.component.css']
 })
 export class BetDashboardComponent implements OnInit {
-  displayedColumns: string[] = ['select', 'playerName', 'avatar', 'bet', 'wins', 'lost', 'Price'];
+  displayedColumns: string[] = ['select', 'playerName', 'avatar', 'Bet', 'wins', 'lost', 'Price'];
   displayedColumnsSelected: string[] = ['playerName', 'avatar', 'bet'];
   allPlayersDataSource: any = new MatTableDataSource<any>();
   selectedPlayersDataSource: any = new MatTableDataSource<any>();
@@ -35,7 +35,6 @@ export class BetDashboardComponent implements OnInit {
   getData(){
     this.betService.getBetData().subscribe((playerData)=>{
       if(playerData){
-        console.log(playerData);
         this.allPlayersDataSource.data = playerData;
         this.allPlayersDataSource.paginator = this.paginator;
         this.allPlayersDataSource.sort = this.sort;
@@ -59,7 +58,6 @@ export class BetDashboardComponent implements OnInit {
   }
 
   selectPlayer(element): void {
-    console.log(element);
     element.checked = !element.checked;
     this.selectedPlayersDataSource.data.push(element)
     let playersSelected = [];

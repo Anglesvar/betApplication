@@ -52,8 +52,8 @@
         <td mat-cell *matCellDef="let element" > <img class="profile-image" [src]="element['Profile Image']"> </td>
       </ng-container>
 
-      <ng-container matColumnDef="bet">
-        <th mat-header-cell *matHeaderCellDef> BET </th>
+      <ng-container matColumnDef="Bet">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> BET </th>
         <td mat-cell *matCellDef="let element" > {{element.Bet}} </td>
       </ng-container>
 
@@ -76,6 +76,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
     </table>
     <mat-paginator [pageSize]="10" class="paginator" [hidePageSize]="true"></mat-paginator>
+    <div class="loading" *ngIf="allPlayersDataSource.data.length==0">Loading...</div>
   </mat-card>
 </mat-card>
-<div class="loading" *ngIf="allPlayersDataSource.data.length==0">Loading...</div>
